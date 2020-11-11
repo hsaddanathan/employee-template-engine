@@ -15,7 +15,7 @@ const render = require("./lib/htmlRenderer");
 const positionSelect = [
     {
         type: "list",
-        name: "role",
+        name: "position",
         message: "What is your position?",
         choices: ["Manager", "Engineer", "Intern"],
     }
@@ -23,7 +23,16 @@ const positionSelect = [
 
 function newTeamPositionPrompt (){
     inquirer.prompt(positionSelect).then(function(response){
-        console.log(response.role);
+        if(response.position === "Manager"){
+            console.log("Manager");
+            //Call Manager Function
+        }else if(response.position === "Engineer"){
+            console.log("Engineer");
+            //Call Engineer Function
+        } else if(response.position === "Intern"){
+            console.log("Intern");
+            //Call Intern Function
+        }
     });
 }
 newTeamPositionPrompt();
