@@ -10,6 +10,23 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+//Initial Prompt for Employee Roles
+
+const positionSelect = [
+    {
+        type: "list",
+        name: "role",
+        message: "What is your position?",
+        choices: ["Manager", "Engineer", "Intern"],
+    }
+];
+
+function newTeamPositionPrompt (){
+    inquirer.prompt(positionSelect).then(function(response){
+        console.log(response.role);
+    });
+}
+newTeamPositionPrompt();
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
