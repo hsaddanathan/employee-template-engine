@@ -10,6 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const teamArray = [];
 //Initial Prompt for Employee Roles
 
 const positionSelect = [
@@ -26,6 +27,7 @@ function newTeamPositionPrompt (){
         if(response.position === "Manager"){
             console.log("Manager");
             //Call Manager Function
+            return createManager();
         }else if(response.position === "Engineer"){
             console.log("Engineer");
             //Call Engineer Function
@@ -36,6 +38,45 @@ function newTeamPositionPrompt (){
     });
 }
 newTeamPositionPrompt();
+
+//Manager Questions and Function
+const managerQuestions = [
+    {
+        type: "input",
+        name: "name",
+        message: "What is your name?",
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "What is your ID?",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is your email address?",
+      },
+      {
+        type: "input",
+        name: "officeNumber",
+        message: "What is your office number?",
+      },
+]
+
+function createManager(){
+    inquirer.prompt(managerQuestions).then(function(response){
+        // console.log(response);
+        const manager = new Manager(
+            response.name,
+            response.id,
+            response.email,
+            response.officeNumber
+        );
+        // console.log(manager);
+        teamArray.push(manager);
+        console.log(teamArray);
+    });
+}
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
