@@ -31,6 +31,7 @@ function newTeamPositionPrompt (){
         }else if(response.position === "Engineer"){
             console.log("Engineer");
             //Call Engineer Function
+            return createEngineer();
         } else if(response.position === "Intern"){
             console.log("Intern");
             //Call Intern Function
@@ -75,8 +76,49 @@ function createManager(){
         // console.log(manager);
         teamArray.push(manager);
         console.log(teamArray);
+        //Function Call to Loop if user wants to add another team member
     });
 }
+
+// Engineer Questions and Function
+const engineerQuestions = [
+    {
+        type: "input",
+        name: "name",
+        message: "What is your name?",
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "What is your ID?",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is your email address?",
+      },
+      {
+        type: "input",
+        name: "github",
+        message: "What is your Github Username?",
+      },
+]
+function createEngineer(){
+    inquirer.prompt(engineerQuestions).then(function(response){
+        // console.log(response);
+        const engineer = new Engineer(
+            response.name,
+            response.id,
+            response.email,
+            response.github
+        );
+        // console.log(manager);
+        teamArray.push(engineer);
+        console.log(teamArray);
+        //Function Call to Loop if user wants to add another team member
+    });
+}
+
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
