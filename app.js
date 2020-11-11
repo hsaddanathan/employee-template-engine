@@ -35,6 +35,7 @@ function newTeamPositionPrompt (){
         } else if(response.position === "Intern"){
             console.log("Intern");
             //Call Intern Function
+            return createIntern();
         }
     });
 }
@@ -119,6 +120,44 @@ function createEngineer(){
     });
 }
 
+// Intern Questions and Function
+const internQuestions = [
+    {
+        type: "input",
+        name: "name",
+        message: "What is your name?",
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "What is your ID?",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is your email address?",
+      },
+      {
+        type: "input",
+        name: "school",
+        message: "What school do you attend?",
+      },
+]
+function createIntern(){
+    inquirer.prompt(internQuestions).then(function(response){
+        // console.log(response);
+        const intern = new Intern(
+            response.name,
+            response.id,
+            response.email,
+            response.school
+        );
+        // console.log(manager);
+        teamArray.push(intern);
+        console.log(teamArray);
+        //Function Call to Loop if user wants to add another team member
+    });
+}
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
