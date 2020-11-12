@@ -78,6 +78,7 @@ function createManager(){
         teamArray.push(manager);
         console.log(teamArray);
         //Function Call to Loop if user wants to add another team member
+        addNewTeamMember();
     });
 }
 
@@ -117,6 +118,7 @@ function createEngineer(){
         teamArray.push(engineer);
         console.log(teamArray);
         //Function Call to Loop if user wants to add another team member
+        addNewTeamMember();
     });
 }
 
@@ -156,9 +158,33 @@ function createIntern(){
         teamArray.push(intern);
         console.log(teamArray);
         //Function Call to Loop if user wants to add another team member
+        addNewTeamMember();
     });
 }
 
+//Adding the next team member questions and function
+const addMemberQuestion = [
+    {
+    type: "list",
+    name: "newMember",
+    message: "Would you like to add another team memeber?",
+    choices: ["YES","NO"]    
+    }
+]
+
+function addNewTeamMember(){
+    inquirer.prompt(addMemberQuestion).then(function(response){
+        console.log(response);
+        if(response.newMember === "YES"){
+            return newTeamPositionPrompt();
+        }
+        else{
+            console.log(teamArray);
+            console.log("Your team is complete!");
+        }
+
+    })
+}
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
