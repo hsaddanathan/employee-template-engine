@@ -3,6 +3,9 @@
     color: White;
 }
 
+.card{
+    margin: 25px;
+}
 .card-header{
     background-color: rgb(20,123,243);
     color: white;
