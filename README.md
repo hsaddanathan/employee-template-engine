@@ -33,8 +33,8 @@ After the last task, you can navigate to the "Output Directory", select the "tea
     * Jest 
 
 ## Demo
-![Demo](Develop Resources/Assets/app-cli.gif)
-![PagePreview](Develop Resources/Assets/app-preview.png)
+![Demo](develop-resources/assets/app-cli.gif)
+![PagePreview](develop-resources/assets/app-preview.png)
 
 
 ## Links
