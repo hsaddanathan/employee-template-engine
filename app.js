@@ -40,7 +40,6 @@ function newTeamPositionPrompt (){
         }
     });
 }
-newTeamPositionPrompt();
 
 //Manager Questions and Function
 const managerQuestions = [
@@ -197,3 +196,6 @@ function createTeamPage(){
         }
     })
 }
+
+//Starts App
+newTeamPositionPrompt();
