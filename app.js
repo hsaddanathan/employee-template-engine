@@ -180,9 +180,20 @@ function addNewTeamMember(){
         }
         else{
             console.log(teamArray);
+            createTeamPage();
             console.log("Your team is complete!");
         }
 
+    })
+}
+
+function createTeamPage(){
+    fs.writeFile(outputPath,render(teamArray),err =>{
+        if (err){
+            throw err;
+        } else {
+            console.log("Success");
+        }
     })
 }
 // Write code to use inquirer to gather information about the development team members,
